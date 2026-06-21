@@ -20,6 +20,10 @@
 #include "pic.h"
 #include "keyboard.h"
 
+#include "func/print_hello.h"
+#include "func/print_version.h"
+
+
 /**
  * @brief   Kernel main entry point
  * @details Initialises all hardware subsystems in dependency order, installs
@@ -71,6 +75,9 @@ void kernel_main(void) {
     terminal_setcolor(vga_entry_color(VGA_COLOR_GREEN, VGA_COLOR_BLACK));
     terminal_writestring("\nSystem ready. Type something: ");
     terminal_setcolor(vga_entry_color(VGA_COLOR_LIGHT_GREY, VGA_COLOR_BLACK));
+    
+    print_hello();
+    print_version();
 
     __asm__ volatile("sti");
 
